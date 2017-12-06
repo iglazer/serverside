@@ -57,27 +57,25 @@ public class MainPage extends HttpServlet{
         response.setContentType("text/html; charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        String outputStr =  "<html><head>\n" +
+        String head =  "<html><head>\n" +
 		   "<meta charset=\"utf-8\">" +
 		    "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
 		    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
 		    "<title>FIX, curated coffee components</title>";
         
-		outputStr  += "<link href=\"reset.css\" rel=\"stylesheet\">\n" +
+		head  += "<link href=\"reset.css\" rel=\"stylesheet\">\n" +
 		    "<link href=\"//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600\" type=\"text/css\" rel=\"stylesheet\">\n" +
 		    "<link href=\"main.css\" rel=\"stylesheet\">" +
                 "<meta name=\"salesforce-community\" content=\""+ COMMUNITY +"\">\n" +
-//                "<meta name=\"salesforce-mode\" content=\""+ request.getParameter("mode") +"-callback\">\n" +
-				"<meta name=\"salesforce-mode\" content=\"" + System.getenv("SALESFORCE_MODE") + "-callback\">\n" +
+				"<meta name=\"salesforce-mode\" content=\"" + MODE + "\">\n" +
                 "<meta name=\"salesforce-server-callback\" content=\"true\">\n" +
-                "<meta name=\"salesforce-server-response\" content='" + 
                 "<meta name=\"salesforce-server-starturl\" content='" + startURL +"'>\n" +
                 "<meta name=\"salesforce-target\" content= \"#salesforce-login\">\n"+
-                "<meta name=\"salesforce-allowed-domains\" content=\"" + System.getenv("SALESFORCE_HEROKUAPP_URL") + "\">\n" +
-                "<script src=\""+ COMMUNITY +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\"" +
-                " async defer></script>\n" +
-                "</head><body></body></html>";
-        out.write(outputStr);
+                "<meta name=\"salesforce-allowed-domains\" content=\"" + HEROKUAPP_URL + "\">\n" +
+                "<script src=\""+ COMMUNITY +"/servlet/servlet.loginwidgetcontroller?type=javascript_widget\" async defer></script>\n" +
+                "<link href=\"" + COMMUNITY + "/servlet/servlet.loginwidgetcontroller?type=css\" rel=\"stylesheet\" type=\"text/css\" />\n" + 
+                "</head>";
+        out.write(head);
     }
 
 }
