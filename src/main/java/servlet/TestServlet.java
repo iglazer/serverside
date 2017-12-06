@@ -33,6 +33,6 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message = "goof";
 		request.setAttribute("message", message);
-		request.getRequestDispatcher("/test.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
 	}
 }
