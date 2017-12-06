@@ -22,10 +22,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-@WebServlet(
-        name = "Test",
-        urlPatterns = {"/test"}
-)
+@WebServlet("/test")
 
 public class TestServlet extends HttpServlet {
 
